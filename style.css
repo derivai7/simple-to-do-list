@@ -1,0 +1,344 @@
+@font-face {
+  font-family: "Gotham Medium";
+  src: url(font/Gotham\ Medium.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 0;
+  font-family: Gotham Medium;
+  transition: 0.3s ease;
+}
+
+body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #2176d9;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+#header {
+  position: relative;
+  height: auto;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 35px auto;
+  color: #fff;
+}
+
+#header .left {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+#header .left i {
+  margin-right: 15px;
+}
+
+#header .right {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#header .right:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#addTodo {
+  height: auto;
+  position: relative;
+  margin: 30px auto 0;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  border-top: #757575 1px solid;
+  border-bottom: #757575 1px solid;
+}
+
+#addTodo input[type="text"] {
+  width: 100%;
+  margin: 35px 0 !important;
+  padding: 15px;
+  border-width: 0px;
+  color: #111;
+  border-radius: 10px;
+}
+
+#addTodo input[type="text"]:focus {
+  outline: none;
+  transform: scaleY(1.1) scaleX(1.01);
+}
+
+#addTodo input[type="text"]:hover {
+  outline: none;
+  transform: scaleY(1.1) scaleX(1.01);
+}
+
+#addTodo i {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #757575;
+}
+
+#showTodo {
+  width: 95%;
+  margin: 0 auto;
+  padding: 35px 0;
+}
+
+#showTodo .container {
+  height: auto;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  color: #757575;
+  border-radius: 10px;
+  background: #fff;
+}
+
+#showTodo .container:hover {
+  transform: scaleY(1.1) scaleX(1.01);
+  margin: 5px 0 10px;
+}
+
+#showTodo .container div {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #757575;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#showTodo .container div i {
+  opacity: 0;
+  font-size: 12px;
+}
+
+#showTodo .container div:hover i {
+  opacity: 1;
+}
+
+#showTodo .container p {
+  margin-left: 8px;
+}
+
+#completeTodo {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 35px;
+}
+
+#completeTodo .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  padding: 7px 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: #ccc;
+  color: #525150;
+}
+
+#completeTodo h1 {
+  font-size: 16px;
+  margin: 0 10px 0 10px;
+  line-height: normal;
+  font-weight: normal;
+}
+
+#completeTodo .completeList {
+  display: none;
+}
+
+.block {
+  display: block !important;
+}
+
+#completeTodo .container {
+  display: flex;
+  height: auto;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 15px;
+  align-items: center;
+  color: #757575;
+  border-radius: 10px;
+  background: #fff;
+}
+
+#completeTodo .container:hover {
+  transform: scaleY(1.1) scaleX(1.01);
+  margin: 5px 0 10px;
+}
+
+#completeTodo .container div {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #757575;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#completeTodo .container div i {
+  opacity: 1;
+  font-size: 12px;
+}
+
+#completeTodo .container div:hover i {
+  opacity: 0;
+}
+
+#completeTodo .container p {
+  margin-left: 8px;
+  text-decoration: line-through;
+}
+
+.option {
+  position: absolute;
+  opacity: 0;
+  right: -200px;
+  width: auto;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.optionActive {
+  opacity: 1;
+  right: 0;
+}
+
+.option div {
+  width: 100%;
+  position: relative;
+  padding: 10px 0;
+}
+
+.option div label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  color: #757575;
+}
+
+.option .printList label,
+.option .clearList label {
+  cursor: pointer;
+}
+
+.option ul {
+  padding-top: 5px;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.option ul li {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 10px;
+  background: #ccc;
+  list-style: none;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+.option ul li:hover {
+  outline: 2px solid #757575;
+  outline-offset: 2px;
+}
+
+.option ul li:nth-child(1) {
+  background: #2176d9;
+}
+
+.option ul li:nth-child(2) {
+  background: #c21184;
+}
+
+.option ul li:nth-child(3) {
+  background: #d46815;
+}
+
+.option ul li:nth-child(4) {
+  background: #525150;
+}
+
+.option ul li:nth-child(5) {
+  background: #1dab1d;
+}
+
+.option ul li:nth-child(6) {
+  background: url("img/6.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 50px;
+}
+
+.option ul li:nth-child(7) {
+  background: url("img/7.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 50px;
+}
+
+.option ul li:nth-child(8) {
+  background: url("img/8.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 50px;
+}
+
+.option ul li:nth-child(9) {
+  background: url("img/9.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 50px;
+}
+
+.option ul li:nth-child(10) {
+  background: url("img/10.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 50px;
+}
+
+@media print {
+  #showTodo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 10%;
+    z-index: 9999999;
+    background: #fff;
+  }
+}
